@@ -1,0 +1,15 @@
+# 납품보고서
+- 문서번호: {{ doc_no or "DR-" + today }}
+- 납품일자: {{ date or today }}
+- 거래처: {{ customer }}
+- 발주번호: {{ po_no }}
+
+## 납품 내역
+| 품목코드 | 품목명 | 수량 | 단가 | 금액 |
+|---|---|---:|---:|---:|
+{% for l in lines -%}
+| {{ l.item_code }} | {{ l.item_name }} | {{ l.qty }} | {{ l.price }} | {{ l.amount }} |
+{% endfor %}
+
+- 합계: **{{ total_amount }}**
+- 비고: {{ remarks or "-" }}

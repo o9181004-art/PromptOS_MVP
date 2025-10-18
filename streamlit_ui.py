@@ -9,7 +9,7 @@ def load_html_file(file_path):
 
 def main():
     st.set_page_config(
-        page_title="PromptOS - AI Prompt Platform",
+        page_title="PromptOS - 제조AI 문서자동화 솔루션",
         page_icon="🧠",
         layout="wide",
         initial_sidebar_state="collapsed"
@@ -31,7 +31,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # HTML 파일 경로
-    html_file_path = "static/index.html"
+    html_file_path = "components/promptos_ui.html"
     
     # HTML 파일이 존재하는지 확인
     if os.path.exists(html_file_path):

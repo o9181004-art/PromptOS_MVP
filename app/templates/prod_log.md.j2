@@ -1,0 +1,20 @@
+# 생산일지
+- 문서번호: {{ doc_no or "PL-" + today }}
+- 작성일자: {{ date or today }}
+- 작업반: {{ work_team }}
+- 작업자: {{ worker }}
+
+## 생산 현황
+| 시간 | 품목코드 | 품목명 | 생산수량 | 불량수량 | 작업상태 | 비고 |
+|---|---|---|---|---|---|---|
+{% for p in production -%}
+| {{ p.time }} | {{ p.item_code }} | {{ p.item_name }} | {{ p.prod_qty }} | {{ p.defect_qty }} | {{ p.status }} | {{ p.remarks or "-" }} |
+{% endfor %}
+
+## 일일 집계
+- 총 생산수량: **{{ total_prod_qty }}**
+- 총 불량수량: **{{ total_defect_qty }}**
+- 수율: **{{ yield_rate or "계산중" }}%**
+- 특이사항: {{ daily_remarks or "-" }}
+
+> 근거 데이터: {{ evidence or "MES 생산 데이터 기준" }}

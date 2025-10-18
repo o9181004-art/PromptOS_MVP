@@ -1,0 +1,18 @@
+# 품질검사성적서 (QIR)
+- 문서번호: {{ doc_no or "QIR-" + today }}
+- 작성일자: {{ date or today }}
+- 품목코드/명: {{ item_code }} / {{ item_name }}
+- LOT 번호: {{ lot_no }}
+- 검사자: {{ inspector }}
+
+## 검사 결과
+| 항목 | 규격(공차) | 측정치 | 판정 |
+|---|---|---|---|
+{% for r in results -%}
+| {{ r.name }} | {{ r.spec }} | {{ r.value }} | {{ r.judgement }} |
+{% endfor %}
+
+- 종합 판정: **{{ final_judgement or "보류" }}**
+- 특이사항: {{ remarks or "-" }}
+
+> 근거 데이터: {{ evidence or "ERP/MES 업로드 파일 기준" }}

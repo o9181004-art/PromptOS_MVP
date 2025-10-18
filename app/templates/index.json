@@ -1,0 +1,16 @@
+{
+  "quickstart": [
+    {"key": "qir", "label": "품질검사서"},
+    {"key": "delivery", "label": "납품보고서"},
+    {"key": "prodlog", "label": "생산일지"},
+    {"key": "defect", "label": "불량분석서"},
+    {"key": "cost", "label": "원가계산서"}
+  ],
+  "map": {
+    "qir": "qir_ko.md.j2",
+    "delivery": "delivery_report.md.j2",
+    "prodlog": "prod_log.md.j2",
+    "defect": "defect_analysis.md.j2",
+    "cost": "cost_sheet.md.j2"
+  }
+}

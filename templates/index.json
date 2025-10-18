@@ -1,0 +1,12 @@
+{
+  "quickstart": [
+    {"key": "qir", "label": "품질검사서"},
+    {"key": "defect", "label": "불량분석서"},
+    {"key": "delivery", "label": "납품보고서"}
+  ],
+  "map": {
+    "qir": "qir_ko.md.j2",
+    "defect": "defect_analysis.md.j2",
+    "delivery": "delivery_report.md.j2"
+  }
+}

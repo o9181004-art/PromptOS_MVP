@@ -1,0 +1,26 @@
+# 불량분석서
+- 문서번호: {{ doc_no or "DA-" + today }}
+- 작성일자: {{ date or today }}
+- 품목코드/명: {{ item_code }} / {{ item_name }}
+- LOT 번호: {{ lot_no }}
+- 분석자: {{ analyst }}
+
+## 불량 현황
+| 불량유형 | 발생수량 | 비율 | 원인분석 | 대책 |
+|---|---|---|---|---|
+{% for d in defects -%}
+| {{ d.type }} | {{ d.count }} | {{ d.ratio }}% | {{ d.cause }} | {{ d.action }} |
+{% endfor %}
+
+## 종합 분석
+- 총 불량수량: **{{ total_defects }}**
+- 불량률: **{{ defect_rate }}%**
+- 주요 원인: **{{ main_cause }}**
+- 개선방안: {{ improvement }}
+
+## 시정조치
+- 즉시조치: {{ action_now or "-" }}
+- 재발방지: {{ prevention or "-" }}
+- 검증방법: {{ verify_method or "-" }}
+
+> 근거 데이터: {{ evidence or "품질관리 시스템 데이터 기준" }}
