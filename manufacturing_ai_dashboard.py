@@ -1,3 +1,15 @@
+﻿# --- Streamlit Cloud bootstrap guard (branch: deploy/streamlit-cloud-311) ---
+import streamlit as st, platform, pkgutil, traceback
+st.caption(f"Boot: Python {platform.python_version()} | Streamlit {st.__version__}")
+_missing = [m for m in ["pandas","numpy","altair"] if pkgutil.find_loader(m) is None]
+if _missing:
+    st.error(f"Missing packages: {_missing}")
+    st.stop()
+try:
+    import pandas as pd, numpy as np
+except Exception as _e:
+    st.exception(_e); st.stop()
+# ---------------------------------------------------------------------------
 import json, os, datetime, time
 import streamlit as st
 import pandas as pd
@@ -450,3 +462,4 @@ with st.expander("📄 특허 상세 보기"):
     ---
     *모든 특허 출원은 특허청(KIPO)에 정식 제출되었으며, 출원 증명서를 보유하고 있습니다.*
     """)
+
